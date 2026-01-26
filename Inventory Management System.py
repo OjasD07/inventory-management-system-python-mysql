@@ -141,15 +141,14 @@ def Search_Product():
 
 # Menu function to display menu
 def menu():
-    system("cls")
     print("************************************")
     print("Inventory Management System")
     print("************************************")
-    print("    1. Display Product")
-    print("    2. Search Product ")
-    print("    3. Add Product ")
-    print("    4. Update Product ")
-    print("    5. Delete Product ")
+    print("    1. Add Product")
+    print("    2. Display Product")
+    print("    3. Update Product")
+    print("    4. Search Product")
+    print("    5. Delete Product")
     print("    0. Exit")
     print("************************************")
     print("Choice Options: [1/2/3/4/5/0]:")
@@ -157,22 +156,16 @@ def menu():
 
     ch = int(input("Enter your Choice: "))
     if ch == 1:
-        system("cls")
-        Display_Product()
-    elif ch == 2:
-        system("cls")
-        Search_Product()
-    elif ch == 3:
-        system("cls")
         Add_Product()
-    elif ch == 4:
-        system("cls")
+    elif ch == 2:
+        Display_Product()
+    elif ch == 3:
         Update_Product()
+    elif ch == 4:
+        Search_Product()
     elif ch == 5:
-        system("cls")
         Remove_Product()
     elif ch == 0:
-        system("cls")
         exit()
     else:
         print("\nInvalid Choice!")
