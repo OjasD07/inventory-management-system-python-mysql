@@ -1,3 +1,5 @@
+# Inventory Management System, By Ojas Deshpande
+
 from os import system
 import mysql.connector
 con = mysql.connector.connect(host="localhost", user="root",password="Your_Password", database="Product_Data")
