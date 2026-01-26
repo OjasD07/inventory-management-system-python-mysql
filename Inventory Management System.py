@@ -1,6 +1,6 @@
 from os import system
 import mysql.connector
-Py_MySQl = mysql.connector.connect(host="localhost", user="root",password="Your_Password", database="Product_Data")
+con = mysql.connector.connect(host="localhost", user="root",password="Your_Password", database="Product_Data")
 
 # Function to Add Product
 def Add_Product():
@@ -16,13 +16,12 @@ def Add_Product():
         data = (PID, PYOM, PCategory,PBrand, PQuantity, PCost, PValue)
         # Inserting Product Details into the Product_Data (Product) Table
         sql = 'insert into Product values(%s,%s,%s,%s,%s,%s,%s)'
-        c = Py_MySQl .cursor()
+        c = con.cursor()
         c.execute(sql, data)
-        Py_MySQl .commit()
+        con .commit()
         print("\nSuccessfully Added Product.")
         press = input("\nPress Any Key To Continue.")
         menu()
-        Add_Product()
     else:
         print("\nProduct ID Already Exists!")
         press = input ("\nPress Any Key To Continue.")
@@ -31,7 +30,7 @@ def Add_Product():
 # Function to Check if Product with given PID exists
 def check_Product(Product_id):
     sql = 'select * from Product where PID = %s'
-    b = Py_MySQl .cursor(buffered=True)
+    b = con .cursor(buffered=True)
     data = (Product_id,)
     b.execute(sql, data)
     x = b.rowcount
@@ -45,7 +44,7 @@ def Display_Product():
     print("\nDisplay Product's Record")
     # query to select all rows from Product_Data (Product) Table
     sql = 'select * from Product'
-    b = Py_MySQl .cursor()
+    b = con.cursor()
     b.execute(sql)
     # Fetching all details of all the Products
     r = b.fetchall()
@@ -77,9 +76,9 @@ def Update_Product():
         # Updating Product details in Product Table
         sql = 'UPDATE Product SET PQuantity= %s, PCost = %s, PValue = %s WHERE PID = %s'
         data = (PQuantity, PCost, PValue, PID)
-        b = Py_MySQl .cursor()
+        b = con.cursor()
         b.execute(sql, data)
-        Py_MySQl .commit()
+        con.commit()
         print("\nUpdated Product's Record")
         press = input("\nPress Any Key To Continue.")
         menu()
@@ -101,9 +100,9 @@ def Remove_Product():
         # query to delete Product from Product table
         sql = 'delete from Product where PID = %s'
         data = (PID,)#Converting it into tuple.
-        b = Py_MySQl .cursor()
+        b = con.cursor()
         b.execute(sql, data)
-        Py_MySQl .commit()
+        con .commit()
         print("\nProduct Removed!")
         press = input("\nPress Any key To Continue.")
         menu()
@@ -117,7 +116,7 @@ def Search_Product():
     # query to search Product from Product table
         sql = 'select * from Product where PID = %s'
         data = (PID,)#Converting it into tuple.
-        b = Py_MySQl .cursor()
+        b = con.cursor()
         b.execute(sql, data)
         # fetching all details of all the products
         r  = b.fetchall()
