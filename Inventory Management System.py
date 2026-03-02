@@ -2,7 +2,7 @@
 
 from os import system
 import mysql.connector
-con = mysql.connector.connect(host="localhost", user="root",password="Your_Password", database="Product_Data")
+connection = mysql.connector.connect(host="localhost", user="root",password="Your_Password", database="Product_Data")
 
 # Function to Add Product
 def Add_Product():
@@ -18,9 +18,9 @@ def Add_Product():
         data = (PID, PYOM, PCategory,PBrand, PQuantity, PCost, PValue)
         # Inserting Product Details into the Product_Data (Product) Table
         sql = 'insert into Product values(%s,%s,%s,%s,%s,%s,%s)'
-        c = con.cursor()
-        c.execute(sql, data)
-        con .commit()
+        cursor = connection.cursor()
+        cursor.execute(sql, data)
+        connection.commit()
         print("\nSuccessfully Added Product.")
         press = input("\nPress Any Key To Continue.")
         menu()
@@ -32,11 +32,11 @@ def Add_Product():
 # Function to Check if Product with given PID exists
 def check_Product(Product_id):
     sql = 'select * from Product where PID = %s'
-    b = con .cursor(buffered=True)
+    cursor = connection.cursor(buffered=True)
     data = (Product_id,)
-    b.execute(sql, data)
-    x = b.rowcount
-    if x == 1:
+    cursor.execute(sql, data)
+    rows = cursor.rowcount
+    if rows == 1:
         return True
     else:
         return False
@@ -46,14 +46,14 @@ def Display_Product():
     print("\nDisplay Product's Record")
     # query to select all rows from Product_Data (Product) Table
     sql = 'select * from Product'
-    b = con.cursor()
-    b.execute(sql)
+    cursor = connection.cursor()
+    cursor.execute(sql)
     # Fetching all details of all the Products
-    r = b.fetchall()
-    if not r:
+    details = cursor.fetchall()
+    if not details:
         print("\nProduct Record does not Exist!")
     else:
-        for i in r:
+        for i in details:
             print("\nProduct's Id: ", i[0])
             print("Product's Year of manufacturing: ", i[1])
             print("Product's Category: ", i[2])
@@ -79,9 +79,9 @@ def Update_Product():
         # Updating Product details in Product Table
         sql = 'UPDATE Product SET PQuantity= %s, PCost = %s, PValue = %s WHERE PID = %s'
         data = (PQuantity, PCost, PValue, PID)
-        b = con.cursor()
-        b.execute(sql, data)
-        con.commit()
+        cursor = connection.cursor()
+        cursor.execute(sql, data)
+        connection.commit()
         print("\nUpdated Product's Record")
         press = input("\nPress Any Key To Continue.")
         menu()
@@ -103,9 +103,9 @@ def Remove_Product():
         # query to delete Product from Product table
         sql = 'delete from Product where PID = %s'
         data = (PID,)#Converting it into tuple.
-        b = con.cursor()
-        b.execute(sql, data)
-        con .commit()
+        cursor = connection.cursor()
+        cursor.execute(sql, data)
+        connection.commit()
         print("\nProduct Removed!")
         press = input("\nPress Any key To Continue.")
         menu()
@@ -119,11 +119,11 @@ def Search_Product():
     # query to search Product from Product table
         sql = 'select * from Product where PID = %s'
         data = (PID,)#Converting it into tuple.
-        b = con.cursor()
-        b.execute(sql, data)
+        cursor = connection.cursor()
+        cursor.execute(sql, data)
         # fetching all details of all the products
-        r  = b.fetchall()
-        for i in r:
+        details = cursor.fetchall()
+        for i in details:
             print("\nProduct's Id: ", i[0])
             print("Product's Year of manufacturing: ", i[1])
             print("Product's Category: ", i[2])
