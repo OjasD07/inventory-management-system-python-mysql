@@ -2,6 +2,7 @@
 # Github:https://github.com/ojasd07/
 # Repository Link (Github):https://github.com/OjasD07/inventory-management-system-python-mysql
 
+
 # This is a simple Inventory Management System that allows the user to Add, Display, Update, Search and Remove Product's Record.
 # The Product's Record is stored in a MySQL Database. The user can perform all the operations on the Product's Record using this system.
 # Note: The user needs to have MySQL installed and a database named "Product_Data" with a table named "Product" to run this system. The user also needs to update the MySQL connection details in the code (host, user, password) before running the system.
@@ -25,6 +26,7 @@
 # 4. Search Product: The user can search for a Product's Record in the database. The user will be prompted to enter the Product ID. The system will check if the Product ID exists in the database. If it does, the system will display the Product's Record in a formatted manner. If it does not, the system will display a message.
 # 5. Remove Product: The user can remove a Product's Record from the database. The user will be prompted to enter the Product ID. The system will check if the Product ID exists in the database. If it does, the system will remove the Product's Record from the database and will display a success message. If it does not, the system will display a message. 
 # The user can exit the system by entering 0 in the menu.
+
 
 
 import mysql.connector
