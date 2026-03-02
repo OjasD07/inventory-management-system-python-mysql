@@ -1,4 +1,31 @@
 # Inventory Management System, By Ojas Deshpande
+# Github:https://github.com/ojasd07/
+# Repository Link (Github):https://github.com/OjasD07/inventory-management-system-python-mysql
+
+# This is a simple Inventory Management System that allows the user to Add, Display, Update, Search and Remove Product's Record.
+# The Product's Record is stored in a MySQL Database. The user can perform all the operations on the Product's Record using this system.
+# Note: The user needs to have MySQL installed and a database named "Product_Data" with a table named "Product" to run this system. The user also needs to update the MySQL connection details in the code (host, user, password) before running the system.
+# The code is written in Python and uses the mysql.connector library to connect to the MySQL database. The code is structured in a way that each operation (Add, Display, Update, Search, Remove) is implemented as a separate function. The menu function is used to display the menu and to call the appropriate function based on the user's choice.
+# The code is simple and easy to understand, and it can be used as a basic template for an Inventory Management System. The user can further enhance the system by adding more features such as sorting, filtering, and generating reports based on the Product's Record.
+# The user can also add error handling to the code to handle exceptions that may occur during database operations. Overall, this Inventory Management System provides a basic framework for managing Product's Record in a MySQL database using Python.
+
+# The Product's Record consists of the following details:
+# 1. Product ID (PID)  
+# 2. Year of Manufacturing (PYOM)
+# 3. Product Category (PCategory)           
+# 4. Product Brand (PBrand)
+# 5. Product Quantity (PQuantity)
+# 6. Product Cost (PCost)
+# 7. Product Value (PValue) [Calculated as PQuantity * PCost]
+
+# The user can perform the following operations on the Product's Record:
+# 1. Add Product: The user can add a new Product's Record to the database. The user will be prompted to enter the Product's details. The system will check if the Product ID already exists in the database. If it does, the system will display a message and will not add the Product's Record. If it does not, the system will add the Product's Record to the database and will display a success message.
+# 2. Display Product: The user can display all the Product's Record from the database. The system will display all the Product's Record in a formatted manner. If there are no Product's Record in the database, the system will display a message.
+# 3. Update Product: The user can update the Product's Record in the database. The user will be prompted to enter the Product ID. The system will check if the Product ID exists in the database. If it does, the user will be prompted to enter the new Product's Quantity and Cost. The system will update the Product's Record in the database and will display a success message. If it does not, the system will display a message.
+# 4. Search Product: The user can search for a Product's Record in the database. The user will be prompted to enter the Product ID. The system will check if the Product ID exists in the database. If it does, the system will display the Product's Record in a formatted manner. If it does not, the system will display a message.
+# 5. Remove Product: The user can remove a Product's Record from the database. The user will be prompted to enter the Product ID. The system will check if the Product ID exists in the database. If it does, the system will remove the Product's Record from the database and will display a success message. If it does not, the system will display a message. 
+# The user can exit the system by entering 0 in the menu.
+
 
 import mysql.connector
 connection = mysql.connector.connect(host="localhost", user="root",password="Your_Password", database="Product_Data")
