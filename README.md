@@ -72,5 +72,4 @@ python "Inventory Management System.py"
 - Year of manufacturing is prompted as `YYYYMMDD`.
 
 ## Author
-Ojas Deshpande  
-contact.ojasdeshpande@gmail.com
+Ojas Deshpande [contact.ojasdeshpande@gmail.com]
